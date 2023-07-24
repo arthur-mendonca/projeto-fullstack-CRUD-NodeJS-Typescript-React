@@ -1,6 +1,8 @@
 import { DataSource, DataSourceOptions } from "typeorm";
 import path from "path";
-import "dotenv/config";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const settings = (): DataSourceOptions => {
   const entitiesPath: string = path.join(__dirname, "./entities/**.{ts,js}");
@@ -17,7 +19,7 @@ const settings = (): DataSourceOptions => {
   }
 
   const dbUrl: string | undefined = process.env.DATABASE_URL;
-
+  console.log(dbUrl);
   if (!dbUrl) throw new Error("Missing env var: 'DATABASE_URL'");
 
   return {
