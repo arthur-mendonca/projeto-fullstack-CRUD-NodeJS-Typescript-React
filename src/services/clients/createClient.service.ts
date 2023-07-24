@@ -1,12 +1,12 @@
 import { Repository } from "typeorm";
-import { AppDataSource } from "../data-source";
-import { Client } from "../entities/clients.entity";
+import { AppDataSource } from "../../data-source";
+import { Client } from "../../entities/clients.entity";
 import {
   TClientRequest,
   TClientResponse,
-} from "../interfaces/clients.interface";
-import { clientSchemaResponse } from "../schemas/client.schema";
-import { AppError } from "../errors";
+} from "../../interfaces/clients.interface";
+import { clientSchemaResponse } from "../../schemas/client.schema";
+import { AppError } from "../../errors";
 
 const createClientService = async (
   requestData: TClientRequest

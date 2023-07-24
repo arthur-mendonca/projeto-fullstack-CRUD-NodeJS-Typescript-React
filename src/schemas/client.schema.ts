@@ -12,3 +12,10 @@ export const clientSchemaRequest = clientSchemaResponse.omit({
   created_at: true,
   id: true,
 });
+
+export const clientUpdateSchema = clientSchemaResponse
+  .omit({
+    id: true,
+    created_at: true,
+  })
+  .partial();
