@@ -19,3 +19,5 @@ export const clientUpdateSchema = clientSchemaResponse
     created_at: true,
   })
   .partial();
+
+export const clientSchemaRelatedResponse = clientSchemaResponse.omit({});

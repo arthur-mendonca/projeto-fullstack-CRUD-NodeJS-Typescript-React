@@ -2,6 +2,8 @@ import { Repository } from "typeorm";
 import { Client } from "../../entities/clients.entity";
 import { AppDataSource } from "../../data-source";
 import { TClientResponse } from "../../interfaces/clients.interface";
+import { AppError } from "../../errors";
+import { clientSchemaResponse } from "../../schemas/client.schema";
 
 const getClientByIdService = async (
   id: number
@@ -10,7 +12,11 @@ const getClientByIdService = async (
 
   const client = await clientRepo.findOne({ where: { id: id } });
 
-  return client;
+  if (!client) {
+    throw new AppError("Client not found", 404);
+  }
+
+  return clientSchemaResponse.parse(client);
 };
 
 export default getClientByIdService;
