@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   createContactController,
+  deleteContactController,
   getContactByIdController,
   listAllContactsController,
   updateContactController,
@@ -13,5 +14,6 @@ contactsRoutes.post("/:id", verifyIdMiddleware, createContactController);
 contactsRoutes.get("", listAllContactsController);
 contactsRoutes.get("/:id", verifyIdMiddleware, getContactByIdController);
 contactsRoutes.patch("/:id", verifyIdMiddleware, updateContactController);
+contactsRoutes.delete("/:id", verifyIdMiddleware, deleteContactController);
 
 export { contactsRoutes };

@@ -3,6 +3,7 @@ import { createContactService } from "../services/contacts/createContact.service
 import { listAllContactsService } from "../services/contacts/listAllContacts.service";
 import { getContactByIdService } from "../services/contacts/getContactById.service";
 import { updateContactService } from "../services/contacts/updateContact.service";
+import { deleteContactService } from "../services/contacts/deleteContact.service";
 
 const createContactController = async (
   request: Request,
@@ -44,9 +45,18 @@ const updateContactController = async (
     .json(await updateContactService(contactId, requestData));
 };
 
+const deleteContactController = async (
+  request: Request,
+  response: Response
+) => {
+  const contactId = Number(request.params.id);
+  return response.status(200).json(await deleteContactService(contactId));
+};
+
 export {
   createContactController,
   listAllContactsController,
   getContactByIdController,
   updateContactController,
+  deleteContactController,
 };

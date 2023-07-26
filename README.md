@@ -6,5 +6,5 @@ npm run typeorm migration:run -- -d ./src/data-source
 
 ---
 
-GERAR PDS COM PUPPETEERp
+GERAR PDS COM PUPPETEER
 https://www.youtube.com/watch?v=9VgghGKx_1c
