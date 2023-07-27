@@ -4,6 +4,12 @@ interface GlobalStyleProps {
   children: React.ReactNode;
 }
 
+export const Container = styled("div", {
+  maxWidth: "$container",
+  margin: "0 auto",
+  padding: "0 1rem",
+});
+
 export const globalStyles = globalCss({
   "*": {
     margin: 0,

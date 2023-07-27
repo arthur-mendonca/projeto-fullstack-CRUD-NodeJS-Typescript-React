@@ -1,6 +1,6 @@
 import { AnimatedText, NavBar as NavBarWrapper } from "./styles";
 
-export const NavBar: React.FC | null = () => {
+export const NavBar = (): JSX.Element => {
   return (
     <NavBarWrapper>
       <AnimatedText>Texto</AnimatedText>
