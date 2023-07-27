@@ -4,6 +4,9 @@ import { listAllContactsService } from "../services/contacts/listAllContacts.ser
 import { getContactByIdService } from "../services/contacts/getContactById.service";
 import { updateContactService } from "../services/contacts/updateContact.service";
 import { deleteContactService } from "../services/contacts/deleteContact.service";
+import { listContactsPDFService } from "../services/contacts/listContactsPDF.service";
+import path from "path";
+import ejs from "ejs";
 
 const createContactController = async (
   request: Request,
@@ -53,10 +56,29 @@ const deleteContactController = async (
   return response.status(200).json(await deleteContactService(contactId));
 };
 
+const listContactsPDFController = async (
+  request: Request,
+  response: Response
+) => {
+  const contacts = await listContactsPDFService();
+
+  const filePath = path.join(__dirname, "../services/contacts/contacts.ejs");
+
+  const createPDF = ejs.renderFile(filePath, { contacts }, (err, html) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("PDF gerado com sucesso");
+    }
+    return response.send(html);
+  });
+  return response.status(200).json(createPDF);
+};
 export {
   createContactController,
   listAllContactsController,
   getContactByIdController,
   updateContactController,
   deleteContactController,
+  listContactsPDFController,
 };

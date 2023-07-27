@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body style="font-family: Arial, Helvetica, sans-serif;">
+    <h1>Clientes</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Telefone</th>
+          <th>Nº de Contatos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% clients.forEach(function(client) { %>
+          <tr>
+            <td><%= client.name %></td>
+            <td><%= client.email %></td>
+            <td><%= client.phone %></td>
+            <td><%= client.contacts.length %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>

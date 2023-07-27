@@ -19,7 +19,6 @@ const settings = (): DataSourceOptions => {
   }
 
   const dbUrl: string | undefined = process.env.DATABASE_URL;
-  console.log(dbUrl);
   if (!dbUrl) throw new Error("Missing env var: 'DATABASE_URL'");
 
   return {

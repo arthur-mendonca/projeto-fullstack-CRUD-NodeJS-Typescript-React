@@ -5,11 +5,13 @@ import {
   listAllClientsController,
   updateClientController,
   deleteClientController,
+  listClientsPDFController,
 } from "../controllers/clients.controllers";
 import verifyIdMiddleware from "../middlewares/verifyId.middleware";
 
 const clientsRoutes = Router();
 
+clientsRoutes.get("/pdf", listClientsPDFController);
 clientsRoutes.post("", createClientController);
 clientsRoutes.get("", listAllClientsController);
 clientsRoutes.patch("/:id", verifyIdMiddleware, updateClientController);
