@@ -74,6 +74,7 @@ const listContactsPDFController = async (
   });
   return response.status(200).json(createPDF);
 };
+
 export {
   createContactController,
   listAllContactsController,

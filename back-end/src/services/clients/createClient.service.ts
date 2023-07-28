@@ -7,10 +7,12 @@ import {
 } from "../../interfaces/clients.interface";
 import { clientSchemaResponse } from "../../schemas/client.schema";
 import { AppError } from "../../errors";
+import { hash } from "bcryptjs";
 
 const createClientService = async (
   requestData: TClientRequest
 ): Promise<TClientResponse> => {
+  const { email, password, name, phone } = requestData;
   const clientRepo: Repository<Client> = AppDataSource.getRepository(Client);
 
   const findExistingClient = await clientRepo.findOne({
@@ -20,7 +22,13 @@ const createClientService = async (
     throw new AppError("Client already exists", 409);
   }
 
-  const createClient: Client = clientRepo.create(requestData);
+  const hashedPassword = await hash(password, 10);
+  const createClient: Client = clientRepo.create({
+    name,
+    email,
+    password: hashedPassword,
+    phone,
+  });
   await clientRepo.save(createClient);
 
   let client = clientSchemaResponse.parse(createClient);

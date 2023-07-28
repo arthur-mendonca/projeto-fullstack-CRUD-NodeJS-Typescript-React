@@ -8,10 +8,12 @@ export const clientSchemaResponse = z.object({
   created_at: z.date(),
 });
 
-export const clientSchemaRequest = clientSchemaResponse.omit({
-  created_at: true,
-  id: true,
-});
+export const clientSchemaRequest = clientSchemaResponse
+  .omit({
+    created_at: true,
+    id: true,
+  })
+  .extend({ password: z.string() });
 
 export const clientUpdateSchema = clientSchemaResponse
   .omit({
