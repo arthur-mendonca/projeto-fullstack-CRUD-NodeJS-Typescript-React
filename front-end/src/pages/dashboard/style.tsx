@@ -1,6 +1,6 @@
-import { styled } from "../../styles/stitches.config";
+import { styled } from "@stitches/react";
 
-export const HomeWrapper = styled("section", {
+export const DashboardWrapper = styled("section", {
   width: "100%",
   display: "flex",
   justifyContent: "center",

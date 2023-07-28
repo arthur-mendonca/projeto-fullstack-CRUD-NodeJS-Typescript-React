@@ -4,6 +4,37 @@ interface GlobalStyleProps {
   children: React.ReactNode;
 }
 
+export const colors = {
+  color: {
+    brand1: {
+      color: "$brand1",
+    },
+
+    grey1: {
+      color: "$grey1",
+    },
+
+    grey2: {
+      color: "$grey2",
+    },
+
+    grey3: {
+      color: "$grey3",
+    },
+
+    grey4: {
+      color: "$grey4",
+    },
+
+    grey5: {
+      color: "$grey5",
+    },
+    grey6: {
+      color: "$grey6",
+    },
+  },
+};
+
 export const Container = styled("div", {
   maxWidth: "$container",
   margin: "0 auto",

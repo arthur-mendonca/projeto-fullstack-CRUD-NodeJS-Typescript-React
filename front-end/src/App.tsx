@@ -1,13 +1,12 @@
-import { NavBar } from "./components/NavBar";
-import { Footer } from "./components/footer";
+import { ClientsProvider } from "./contexts/clientsContext/clientsContext";
 import { Router } from "./routes/routes";
 
 function App() {
   return (
     <>
-      <NavBar />
-      <Router />
-      <Footer />
+      <ClientsProvider>
+        <Router />
+      </ClientsProvider>
     </>
   );
 }

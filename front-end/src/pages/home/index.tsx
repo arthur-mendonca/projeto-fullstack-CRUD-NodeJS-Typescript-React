@@ -1,11 +1,13 @@
-import { Cards } from "../../components/cards";
+import { LoginForm } from "../../components/forms/loginForm";
+// import { Container } from "../../styles/Global";
 import { HomeWrapper } from "./style";
 
 export const Home = () => {
   return (
     <HomeWrapper>
-      <h1>Home</h1>
-      <Cards />
+      {/* <Container> */}
+      <LoginForm></LoginForm>
+      {/* </Container> */}
     </HomeWrapper>
   );
 };

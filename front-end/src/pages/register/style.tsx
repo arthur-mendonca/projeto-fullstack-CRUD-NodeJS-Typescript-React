@@ -1,6 +1,6 @@
 import { styled } from "../../styles/stitches.config";
 
-export const HomeWrapper = styled("section", {
+export const RegisterPageWrapper = styled("section", {
   width: "100%",
   display: "flex",
   justifyContent: "center",
