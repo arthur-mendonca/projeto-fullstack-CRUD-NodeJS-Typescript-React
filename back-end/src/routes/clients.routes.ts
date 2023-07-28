@@ -11,6 +11,7 @@ import verifyIdMiddleware from "../middlewares/verifyId.middleware";
 import { ensureDataIsValid } from "../middlewares/ensureDataIsValid.middleware";
 import { clientSchemaRequest } from "../schemas/client.schema";
 import { authenticationMiddleware } from "../middlewares/authenticate.middleware";
+import { verifyAdminMiddleware } from "../middlewares/verifyAdmin.middleware";
 
 const clientsRoutes = Router();
 
