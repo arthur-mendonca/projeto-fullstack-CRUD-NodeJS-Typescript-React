@@ -10,18 +10,35 @@ import {
 import verifyIdMiddleware from "../middlewares/verifyId.middleware";
 import { ensureDataIsValid } from "../middlewares/ensureDataIsValid.middleware";
 import { clientSchemaRequest } from "../schemas/client.schema";
+import { authenticationMiddleware } from "../middlewares/authenticate.middleware";
 
 const clientsRoutes = Router();
 
-clientsRoutes.get("/pdf", listClientsPDFController);
+clientsRoutes.get("/pdf", authenticationMiddleware, listClientsPDFController);
+clientsRoutes.get("", authenticationMiddleware, listAllClientsController);
 clientsRoutes.post(
   "",
   ensureDataIsValid(clientSchemaRequest),
   createClientController
 );
-clientsRoutes.get("", listAllClientsController);
-clientsRoutes.patch("/:id", verifyIdMiddleware, updateClientController);
-clientsRoutes.get("/:id", verifyIdMiddleware, getClientByIdController);
-clientsRoutes.delete("/:id", verifyIdMiddleware, deleteClientController);
+
+clientsRoutes.patch(
+  "/:id",
+  authenticationMiddleware,
+  verifyIdMiddleware,
+  updateClientController
+);
+clientsRoutes.get(
+  "/:id",
+  authenticationMiddleware,
+  verifyIdMiddleware,
+  getClientByIdController
+);
+clientsRoutes.delete(
+  "/:id",
+  authenticationMiddleware,
+  verifyIdMiddleware,
+  deleteClientController
+);
 
 export { clientsRoutes };

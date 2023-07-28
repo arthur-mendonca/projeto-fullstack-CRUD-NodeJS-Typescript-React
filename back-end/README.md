@@ -8,6 +8,9 @@ npm run typeorm migration:run -- -d ./src/data-source
 
 ROTAS:
 
+-->LOGIN
+Fazer Login: POST /login
+
 --> CLIENTS
 *Criar Client: POST /clients
 *Atualizar Client: PATCH /client/id

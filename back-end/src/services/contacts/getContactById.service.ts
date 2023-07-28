@@ -1,9 +1,6 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../data-source";
-import {
-  TContactById,
-  TContactResponse,
-} from "../../interfaces/contacts.interface";
+import { TContactById } from "../../interfaces/contacts.interface";
 import { Contact } from "../../entities/contacts.entity";
 import { contactSchemaResponse } from "../../schemas/contacts.schema";
 
