@@ -22,7 +22,9 @@ const authenticationMiddleware = (
       if (error) {
         return response.status(401).json({ message: "Invalid token" });
       }
-
+      console.log(decoded);
+      console.log(decoded);
+      console.log("_____________+++++++++++++++");
       response.locals.clientId = decoded.sub;
 
       return next();

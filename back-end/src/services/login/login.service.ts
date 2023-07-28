@@ -24,6 +24,7 @@ const createTokenService = async ({ email, password }: TLoginRequest) => {
   const token = jwt.sign(
     {
       userName: client.name,
+      admin: client.admin,
     },
     process.env.SECRET_KEY!,
     {

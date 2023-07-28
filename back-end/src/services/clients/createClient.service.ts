@@ -12,7 +12,7 @@ import { hash } from "bcryptjs";
 const createClientService = async (
   requestData: TClientRequest
 ): Promise<TClientResponse> => {
-  const { email, password, name, phone } = requestData;
+  const { email, password, name, phone, admin } = requestData;
   const clientRepo: Repository<Client> = AppDataSource.getRepository(Client);
 
   const findExistingClient = await clientRepo.findOne({
@@ -28,6 +28,7 @@ const createClientService = async (
     email,
     password: hashedPassword,
     phone,
+    admin: admin || false,
   });
   await clientRepo.save(createClient);
 

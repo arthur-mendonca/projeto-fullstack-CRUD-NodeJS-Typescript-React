@@ -6,6 +6,7 @@ import {
   CreateDateColumn,
 } from "typeorm";
 import { Contact } from "./contacts.entity";
+import { boolean } from "zod";
 
 @Entity("clients")
 export class Client {
@@ -26,6 +27,9 @@ export class Client {
 
   @Column()
   password: string;
+
+  @Column({ default: false })
+  admin: boolean;
 
   @CreateDateColumn()
   created_at: Date;
