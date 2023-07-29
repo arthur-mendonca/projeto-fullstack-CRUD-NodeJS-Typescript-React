@@ -10,7 +10,6 @@ export const Text = styled("p", {
         fontSize: "$title1",
         lineHeight: "$title1",
         fontWeight: 700,
-        // color: "$color8",
         "@mobile": {
           fontSize: "$titleMobile",
           lineHeight: "$title1Mobile",
@@ -44,6 +43,12 @@ export const Text = styled("p", {
         fontSize: "15px",
         fontWeight: 300,
         lineHeight: "0.2rem",
+      },
+      cardName: {
+        fontSize: "24px",
+      },
+      cardText: {
+        fontSize: "17px",
       },
     },
   },

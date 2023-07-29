@@ -13,7 +13,7 @@ const LoginProvider: React.FC<ILoginProvider> = ({ children }) => {
     try {
       const response = await api.post("/login", formData);
       console.log(response.data);
-      localStorage.setItem("@token", response.data.token);
+      localStorage.setItem("@token", response.data);
       navigate("/dashboard");
       return response.data.token;
     } catch (err) {

@@ -11,12 +11,35 @@ export const ClientsContext = createContext({} as IClientContext);
 export const ClientsProvider: React.FC<IClientContextProvider> = ({
   children,
 }) => {
+  const token = localStorage.getItem("@token");
   const navigate = useNavigate();
   const [clients, setClients] = useState<Client[]>([]);
+  const [specificClient, setSpecificClient] = useState<Client | undefined>();
+
+  const getSpecificClient = async (
+    clientId: number
+  ): Promise<Client | undefined> => {
+    try {
+      const response = await api.get(`/clients/${clientId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response.data);
+      setSpecificClient(response.data);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const getClients = async (): Promise<Client[] | undefined> => {
     try {
-      const response = await api.get("/clients");
+      const response = await api.get("/clients", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setClients(response.data);
       console.log(response.data);
       return response.data;
@@ -46,7 +69,15 @@ export const ClientsProvider: React.FC<IClientContextProvider> = ({
 
   return (
     <ClientsContext.Provider
-      value={{ clients, setClients, getClients, createClient }}
+      value={{
+        clients,
+        setClients,
+        getClients,
+        createClient,
+        getSpecificClient,
+        setSpecificClient,
+        specificClient,
+      }}
     >
       {children}
     </ClientsContext.Provider>
