@@ -3,14 +3,15 @@ import { styled } from "../../styles/stitches.config";
 export const CardsWrapper = styled("ul", {
   //   backgroundColor: "$color1",
   listStyle: "none",
-  display: "flex",
-  flexDirection: "column",
-  flexWrap: "wrap",
-  gap: "1rem",
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 2fr))",
   padding: "2rem 2rem",
-  backgroundColor: "darkblue",
+  gap: "2rem",
+  width: "100%",
+  // backgroundColor: "darkblue",
 
   ["& li"]: {
     backgroundColor: "White",
+    padding: "1rem",
   },
 });

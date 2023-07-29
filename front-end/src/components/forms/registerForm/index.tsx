@@ -2,10 +2,31 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { clientRegisterSchema } from "../../../schemas/registerFormSchema";
 import { TClientRegister } from "../../../interfaces/clientRegister.interfaces";
-import { Button } from "../../../styles/Buttons";
-import { StyledInput, StyledRegisterForm } from "./style";
+import {
+  StyledInput,
+  StyledPasswordWrapper,
+  StyledRegisterButton,
+  StyledRegisterForm,
+  StyledPasswordButton,
+} from "./style";
+import { Text } from "../../../styles/Text";
+import React, { useContext, useState } from "react";
+import { ClientsContext } from "../../../contexts/clientsContext/clientsContext";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
 export const RegisterForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const { createClient } = useContext(ClientsContext);
+
+  const showPasswordHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setShowPassword(!showPassword);
+  };
+
+  const onSubmit = (data: TClientRegister) => {
+    createClient(data);
+  };
+
   const {
     register,
     handleSubmit,
@@ -16,16 +37,40 @@ export const RegisterForm = () => {
 
   return (
     <>
-      <StyledRegisterForm onSubmit={handleSubmit((data) => console.log(data))}>
+      <StyledRegisterForm onSubmit={handleSubmit(onSubmit)}>
         <StyledInput {...register("name")} placeholder="Name" />
-        {errors.name?.message && <span>{errors.name.message}</span>}
+        {errors.name?.message && (
+          <Text type={"error"}>{errors.name.message}</Text>
+        )}
         <StyledInput {...register("email")} placeholder="Email" />
-        {errors.email?.message && <span>{errors.email.message}</span>}
-        <StyledInput {...register("password")} placeholder="Password" />
-        {errors.password?.message && <span>{errors.password.message}</span>}
+        {errors.email?.message && (
+          <Text type={"error"}>{errors.email.message}</Text>
+        )}
+        <StyledPasswordWrapper>
+          <StyledInput
+            {...register("password")}
+            placeholder="Password"
+            type={showPassword ? "text" : "password"}
+          />
+          <StyledPasswordButton
+            onClick={(event) => showPasswordHandler(event)}
+            style={{ background: "transparent" }}
+          >
+            {showPassword ? (
+              <AiOutlineEyeInvisible style={{ color: "black" }} />
+            ) : (
+              <AiOutlineEye style={{ color: "black" }} />
+            )}
+          </StyledPasswordButton>
+          {errors.password?.message && (
+            <Text type={"error"}>{errors.password.message}</Text>
+          )}
+        </StyledPasswordWrapper>
         <StyledInput {...register("phone")} placeholder="Phone" />
-        {errors.phone?.message && <span>{errors.phone.message}</span>}
-        <Button>Registrar</Button>
+        {errors.phone?.message && (
+          <Text type={"error"}>{errors.phone.message}</Text>
+        )}
+        <StyledRegisterButton>Registrar</StyledRegisterButton>
       </StyledRegisterForm>
     </>
   );

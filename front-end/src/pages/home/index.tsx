@@ -1,13 +1,14 @@
 import { LoginForm } from "../../components/forms/loginForm";
-// import { Container } from "../../styles/Global";
-import { HomeWrapper } from "./style";
+import { HomeContainer, HomeWrapper } from "./style";
 
 export const Home = () => {
   return (
     <HomeWrapper>
-      {/* <Container> */}
-      <LoginForm></LoginForm>
-      {/* </Container> */}
+      <HomeContainer>
+        <LoginForm>
+          <h1>Login</h1>
+        </LoginForm>
+      </HomeContainer>
     </HomeWrapper>
   );
 };

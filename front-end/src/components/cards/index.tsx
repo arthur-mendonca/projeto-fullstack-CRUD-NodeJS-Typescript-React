@@ -15,9 +15,7 @@ export const Cards = (): JSX.Element => {
     <CardsWrapper>
       {clients?.map((client) => (
         <li key={client.id}>
-          {" "}
           <Text type={"heading1"} css={{ color: "$color8" }}>
-            {" "}
             {client.name}
           </Text>
           <Text> {client.email}</Text>

@@ -39,6 +39,12 @@ export const Text = styled("p", {
         fontSize: "$text2",
         lineHeight: "$text2",
       },
+      error: {
+        color: "$whiteFixed",
+        fontSize: "15px",
+        fontWeight: 300,
+        lineHeight: "0.2rem",
+      },
     },
   },
 });

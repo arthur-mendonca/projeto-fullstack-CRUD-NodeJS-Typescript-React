@@ -4,9 +4,21 @@ import { LoginFormSchema } from "../../../schemas/loginFormSchema";
 import { TLoginFormType } from "../../../interfaces/login.interfaces";
 import { LoginContext } from "../../../contexts/loginContext/loginContext";
 import { useContext } from "react";
-import { Button } from "../../../styles/Buttons";
+import {
+  StyledLoginButton,
+  StyledInput,
+  StyledLoginForm,
+  StyledRegisterButton,
+  ButtonsWrapper,
+} from "./style";
+import { useNavigate } from "react-router-dom";
 
-export const LoginForm = () => {
+interface LoginFormProps {
+  children: React.ReactNode;
+}
+
+export const LoginForm = ({ children }: LoginFormProps) => {
+  const navigate = useNavigate();
   const { loginRequest } = useContext(LoginContext);
   const {
     register,
@@ -21,12 +33,22 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("email")} type="email" placeholder="Email" />
+    <StyledLoginForm onSubmit={handleSubmit(onSubmit)}>
+      {children}
+      <StyledInput {...register("email")} type="email" placeholder="Email" />
       {errors.email?.message && <p>{errors.email.message}</p>}
-      <input type="password" placeholder="Password" {...register("password")} />
+      <StyledInput
+        type="password"
+        placeholder="Password"
+        {...register("password")}
+      />
       {errors.password?.message && <p>{errors.password.message}</p>}
-      <Button>Login</Button>
-    </form>
+      <ButtonsWrapper>
+        <StyledLoginButton>Login</StyledLoginButton>
+        <StyledRegisterButton onClick={() => navigate("/register")}>
+          Register
+        </StyledRegisterButton>
+      </ButtonsWrapper>
+    </StyledLoginForm>
   );
 };

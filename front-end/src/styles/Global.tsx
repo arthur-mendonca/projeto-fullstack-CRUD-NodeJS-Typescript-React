@@ -120,7 +120,7 @@ export const GlobalStyle: React.FC<GlobalStyleProps> = ({ children }) => {
   globalStyles();
 
   const App = styled("div", {
-    minHeight: "100vh",
+    // minHeight: "10vh",
   });
 
   return <App className={theme}>{children}</App>;

@@ -1,12 +1,12 @@
-import { ClientsProvider } from "./contexts/clientsContext/clientsContext";
 import { Router } from "./routes/routes";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
-      <ClientsProvider>
-        <Router />
-      </ClientsProvider>
+      <ToastContainer />
+      <Router />
     </>
   );
 }

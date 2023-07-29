@@ -5,6 +5,6 @@ export const DashboardWrapper = styled("section", {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "100vh",
-  backgroundColor: "lightblack",
+  minHeight: "100vh",
+  backgroundColor: "grey",
 });

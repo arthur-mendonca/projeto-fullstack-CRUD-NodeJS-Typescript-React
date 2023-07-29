@@ -6,5 +6,5 @@ export const RegisterPageWrapper = styled("section", {
   justifyContent: "center",
   alignItems: "center",
   height: "100vh",
-  backgroundColor: "lightblack",
+  backgroundColor: "$color9",
 });
