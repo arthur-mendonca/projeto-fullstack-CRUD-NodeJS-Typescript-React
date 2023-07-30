@@ -1,8 +1,7 @@
 import { z } from "zod";
-import { contactSchemaResponse } from "./contacts.schema";
 
 export const clientSchemaResponse = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string(),
   email: z.string().email(),
   phone: z.string(),
@@ -29,7 +28,7 @@ export const clientSchemaRelatedResponse = clientSchemaResponse.omit({});
 export const getClientByIdSchema = clientSchemaResponse.extend({
   contacts: z.array(
     z.object({
-      id: z.number(),
+      id: z.string(),
       name: z.string(),
       email: z.string().email(),
       phone: z.string(),

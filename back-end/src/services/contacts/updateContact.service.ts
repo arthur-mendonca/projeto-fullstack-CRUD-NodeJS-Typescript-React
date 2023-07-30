@@ -6,7 +6,7 @@ import { TContactUpdate } from "../../interfaces/contacts.interface";
 import { contactUpdateSchema } from "../../schemas/contacts.schema";
 
 const updateContactService = async (
-  contactId: number,
+  contactId: string,
   requestData: TContactUpdate
 ): Promise<TContactUpdate> => {
   const contactRepo: Repository<Contact> = AppDataSource.getRepository(Contact);

@@ -13,7 +13,7 @@ const createContactController = async (
   response: Response
 ) => {
   const requestData = request.body;
-  const clientId = Number(request.params.id);
+  const clientId = request.params.id;
 
   return response
     .status(201)
@@ -31,7 +31,7 @@ const getContactByIdController = async (
   request: Request,
   response: Response
 ) => {
-  const contactId = Number(request.params.id);
+  const contactId = request.params.id;
 
   return response.status(200).json(await getContactByIdService(contactId));
 };
@@ -40,7 +40,7 @@ const updateContactController = async (
   request: Request,
   response: Response
 ) => {
-  const contactId = Number(request.params.id);
+  const contactId = request.params.id;
   const requestData = request.body;
 
   return response
@@ -52,7 +52,8 @@ const deleteContactController = async (
   request: Request,
   response: Response
 ) => {
-  const contactId = Number(request.params.id);
+  const contactId = request.params.id;
+  console.log(contactId);
   return response.status(200).json(await deleteContactService(contactId));
 };
 

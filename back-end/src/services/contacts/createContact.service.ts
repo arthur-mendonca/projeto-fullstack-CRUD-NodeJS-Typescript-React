@@ -10,7 +10,7 @@ import { Client } from "../../entities/clients.entity";
 import { AppError } from "../../errors";
 
 const createContactService = async (
-  clientId: number,
+  clientId: string,
   requestData: TContactRequest
 ): Promise<TContactResponse> => {
   const contactRepo: Repository<Contact> = AppDataSource.getRepository(Contact);

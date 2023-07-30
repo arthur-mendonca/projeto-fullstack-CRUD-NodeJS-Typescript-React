@@ -21,7 +21,7 @@ const listAllClientsController = async (
 };
 
 const updateClientController = async (request: Request, response: Response) => {
-  let clientId = Number(request.params.id);
+  let clientId = request.params.id;
 
   return response
     .status(200)
@@ -32,13 +32,13 @@ const getClientByIdController = async (
   request: Request,
   response: Response
 ) => {
-  let clientId = Number(request.params.id);
+  let clientId = request.params.id;
   return response.status(200).json(await getClientByIdService(clientId));
 };
 
 const deleteClientController = async (request: Request, response: Response) => {
   let clientId = request.params.id;
-  return response.status(200).json(await deleteClientService(Number(clientId)));
+  return response.status(200).json(await deleteClientService(clientId));
 };
 
 const listClientsPDFController = async (

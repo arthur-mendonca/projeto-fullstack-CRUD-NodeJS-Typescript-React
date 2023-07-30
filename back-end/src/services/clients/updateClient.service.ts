@@ -5,7 +5,7 @@ import { Client } from "../../entities/clients.entity";
 import { AppDataSource } from "../../data-source";
 
 const updateClientService = async (
-  requestId: number,
+  requestId: string,
   requestData: TClientUpdate
 ): Promise<TClientUpdate> => {
   const clientsRepo: Repository<Client> = AppDataSource.getRepository(Client);

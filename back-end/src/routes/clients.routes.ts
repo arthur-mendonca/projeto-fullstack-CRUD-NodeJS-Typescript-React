@@ -7,7 +7,7 @@ import {
   deleteClientController,
   listClientsPDFController,
 } from "../controllers/clients.controllers";
-import verifyIdMiddleware from "../middlewares/verifyId.middleware";
+import verifyIdMiddleware from "../middlewares/verifyClientId.middleware";
 import { ensureDataIsValid } from "../middlewares/ensureDataIsValid.middleware";
 import { clientSchemaRequest } from "../schemas/client.schema";
 import { authenticationMiddleware } from "../middlewares/authenticate.middleware";
@@ -15,7 +15,10 @@ import { verifyAdminMiddleware } from "../middlewares/verifyAdmin.middleware";
 
 const clientsRoutes = Router();
 
-clientsRoutes.get("/pdf", authenticationMiddleware, listClientsPDFController);
+clientsRoutes.get(
+  "/pdf",
+  /*authenticationMiddleware*/ listClientsPDFController
+);
 clientsRoutes.get("", authenticationMiddleware, listAllClientsController);
 clientsRoutes.post(
   "",
@@ -25,19 +28,19 @@ clientsRoutes.post(
 
 clientsRoutes.patch(
   "/:id",
-  authenticationMiddleware,
+  /*authenticationMiddleware*/
   verifyIdMiddleware,
   updateClientController
 );
 clientsRoutes.get(
   "/:id",
-  authenticationMiddleware,
+  /*authenticationMiddleware*/
   verifyIdMiddleware,
   getClientByIdController
 );
 clientsRoutes.delete(
   "/:id",
-  authenticationMiddleware,
+  /*authenticationMiddleware*/
   verifyIdMiddleware,
   deleteClientController
 );

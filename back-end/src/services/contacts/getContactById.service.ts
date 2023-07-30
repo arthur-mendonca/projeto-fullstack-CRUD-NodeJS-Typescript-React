@@ -5,7 +5,7 @@ import { Contact } from "../../entities/contacts.entity";
 import { contactSchemaResponse } from "../../schemas/contacts.schema";
 
 const getContactByIdService = async (
-  contactId: number
+  contactId: string
 ): Promise<TContactById | null> => {
   const contactsRepo: Repository<Contact> =
     AppDataSource.getRepository(Contact);

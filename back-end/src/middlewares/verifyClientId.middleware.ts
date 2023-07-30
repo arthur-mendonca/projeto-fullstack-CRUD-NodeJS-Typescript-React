@@ -4,7 +4,7 @@ import { Client } from "../entities/clients.entity";
 import { AppDataSource } from "../data-source";
 import { AppError } from "../errors";
 
-const verifyIdMiddleware = async (
+const verifyClientIdMiddleware = async (
   request: Request,
   response: Response,
   next: NextFunction
@@ -14,14 +14,14 @@ const verifyIdMiddleware = async (
   const clientRepo: Repository<Client> = AppDataSource.getRepository(Client);
 
   const findClient = await clientRepo.findOne({
-    where: { id: Number(clientId) },
+    where: { id: clientId },
   });
 
   if (!findClient) {
-    throw new AppError("User not found", 404);
+    throw new AppError(`Client not found with id ${clientId}`, 404);
   }
 
   return next();
 };
 
-export default verifyIdMiddleware;
+export default verifyClientIdMiddleware;

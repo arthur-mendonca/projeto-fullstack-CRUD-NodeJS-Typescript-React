@@ -9,8 +9,8 @@ import { Client } from "./clients.entity";
 
 @Entity("contacts")
 export class Contact {
-  @PrimaryGeneratedColumn("increment")
-  id: number;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Column()
   name: string;

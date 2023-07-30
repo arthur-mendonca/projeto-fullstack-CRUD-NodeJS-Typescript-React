@@ -13,8 +13,8 @@ export class Client {
   comparePassword(password: string) {
     throw new Error("Method not implemented.");
   }
-  @PrimaryGeneratedColumn("increment")
-  id: number;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Column()
   name: string;

@@ -1,12 +1,11 @@
 import { z } from "zod";
 import {
   clientSchemaRelatedResponse,
-  clientSchemaRequest,
   clientSchemaResponse,
 } from "./client.schema";
 
 export const contactSchemaResponse = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string(),
   email: z.string(),
   phone: z.string(),

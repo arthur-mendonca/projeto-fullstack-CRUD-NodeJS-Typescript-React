@@ -6,7 +6,7 @@ import { AppError } from "../../errors";
 import { getClientByIdSchema } from "../../schemas/client.schema";
 
 const getClientByIdService = async (
-  id: number
+  id: string
 ): Promise<TGetClientById | null> => {
   const clientRepo: Repository<Client> = AppDataSource.getRepository(Client);
 
