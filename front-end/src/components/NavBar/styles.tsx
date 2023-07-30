@@ -3,7 +3,7 @@ import { styled } from "../../styles/stitches.config";
 
 export const NavBar = styled("nav", {
   background: "$color4",
-  position: "fixed",
+  position: "sticky",
   inset: 0,
   bottom: "auto",
   width: "100%",

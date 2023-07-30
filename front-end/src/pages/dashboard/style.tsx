@@ -1,12 +1,15 @@
 import { styled } from "@stitches/react";
 
 export const DashboardWrapper = styled("section", {
+  backgroundColor: "darkgrey",
+  flex: "1 1 auto",
+  overflowY: "auto",
+  // marginBottom: "1rem",
+});
+
+export const CardsWrapper = styled("div", {
   width: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
   height: "100%",
-  // maxHeight: "inherit",
-  backgroundColor: "grey",
-  overflow: "auto",
+  // marginBottom: "5em",
+  // margin: "2rem 0",
 });

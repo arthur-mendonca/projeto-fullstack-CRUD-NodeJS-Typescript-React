@@ -42,6 +42,9 @@ export const Container = styled("div", {
 });
 
 export const globalStyles = globalCss({
+  body: {
+    height: "100vh",
+  },
   "*": {
     margin: 0,
     padding: 0,
@@ -119,9 +122,7 @@ export const GlobalStyle: React.FC<GlobalStyleProps> = ({ children }) => {
 
   globalStyles();
 
-  const App = styled("div", {
-    // minHeight: "10vh",
-  });
+  const App = styled("div", {});
 
   return <App className={theme}>{children}</App>;
 };

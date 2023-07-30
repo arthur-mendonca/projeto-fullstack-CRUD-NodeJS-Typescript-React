@@ -5,8 +5,8 @@ import { Button } from "../../styles/Buttons";
 
 export const DashboardNavBar = styled("nav", {
   background: "$color8",
-  position: "fixed",
-  top: "28px",
+  position: "sticky",
+  top: "0",
   bottom: "auto",
   width: "100%",
   zIndex: "900",
