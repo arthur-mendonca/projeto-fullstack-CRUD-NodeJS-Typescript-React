@@ -21,7 +21,7 @@ export const DeleteContactModal = () => {
   const decoded = jwt_decode<DecodedToken>(token!);
 
   useEffect(() => {
-    getSpecificClient(Number(decoded.sub));
+    getSpecificClient(decoded.sub);
   }, []);
 
   const contactToDelete = specificClient!.contacts.find(
@@ -29,7 +29,7 @@ export const DeleteContactModal = () => {
   );
 
   const handleClick = () => {
-    deleteContact(Number(contactId));
+    deleteContact(contactId!);
     setCurrentModal("");
   };
   return (

@@ -27,7 +27,7 @@ export const AddContactForm = () => {
   const onSubmit = async (data: ContactRequestData) => {
     console.log(decoded);
     console.log(data);
-    addNewContact(data, Number(decoded.sub));
+    addNewContact(data, decoded.sub);
   };
 
   return (

@@ -3,7 +3,7 @@ import { Contact } from "../clientsContext/interfaces";
 export interface IContactsContext {
   addNewContact: (
     contactData: ContactRequestData,
-    clientId: number
+    clientId: string
   ) => Promise<Contact | undefined>;
 
   currentModal: string;
@@ -12,13 +12,13 @@ export interface IContactsContext {
 
   updateContact: (
     contactData: ContactUpdate,
-    contactId: number
+    contactId: string
   ) => Promise<Contact | undefined>;
   setContactId: React.Dispatch<React.SetStateAction<string | undefined>>;
 
   contactId: string | undefined;
 
-  deleteContact: (contactId: number) => Promise<void>;
+  deleteContact: (contactId: string) => Promise<void>;
 }
 
 export interface IContextContextProvider {
@@ -26,7 +26,7 @@ export interface IContextContextProvider {
 }
 
 export interface ContactResponse {
-  id: number;
+  id: string;
   name: string;
   email: string;
   phone: string;

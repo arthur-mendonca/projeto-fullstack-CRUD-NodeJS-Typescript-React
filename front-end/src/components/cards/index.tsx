@@ -28,7 +28,7 @@ export const Cards = (): JSX.Element => {
   const decoded = jwt_decode<DecodedToken>(token!);
 
   useEffect(() => {
-    getSpecificClient(Number(decoded.sub));
+    getSpecificClient(decoded.sub);
   }, []);
 
   const handleUpdateClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -48,7 +48,7 @@ export const Cards = (): JSX.Element => {
   return (
     <CardsWrapper>
       {specificClient?.contacts.map((contact) => (
-        <li key={contact.id} id={contact.id.toString()}>
+        <li key={contact.id} id={contact.id}>
           <CardDataWrapper>
             <Text type={"cardName"} css={{ color: "white" }}>
               {contact.name}
@@ -62,13 +62,13 @@ export const Cards = (): JSX.Element => {
           </CardDataWrapper>
           <ButtonsWrapper>
             <DeleteButton
-              id={contact.id.toString()}
+              id={contact.id}
               onClick={(event) => handleDeleteClick(event)}
             >
               <AiOutlineDelete color={"white"} />
             </DeleteButton>
             <UpdateButton
-              id={contact.id.toString()}
+              id={contact.id}
               onClick={(event) => handleUpdateClick(event)}
             >
               <MdSystemUpdateAlt color={"white"} />

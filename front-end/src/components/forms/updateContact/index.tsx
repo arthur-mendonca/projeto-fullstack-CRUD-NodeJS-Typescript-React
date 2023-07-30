@@ -27,15 +27,13 @@ export const UpdateContactForm = () => {
   });
 
   const onSubmit = (data: ContactUpdate) => {
-    const numberContactId = Number(contactId);
-
     Object.keys(data).forEach((key: string) => {
       if (data[key] === "") {
         delete data[key];
       }
     });
 
-    updateContact(data, numberContactId);
+    updateContact(data, contactId!);
     setCurrentModal("");
   };
 

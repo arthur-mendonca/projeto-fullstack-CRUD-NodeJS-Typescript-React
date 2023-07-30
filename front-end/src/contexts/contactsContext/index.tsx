@@ -23,7 +23,7 @@ export const ContactsProvider: React.FC<IContextContextProvider> = ({
 
   const addNewContact = async (
     contactData: ContactRequestData,
-    clientId: number
+    clientId: string
   ): Promise<Contact | undefined> => {
     try {
       const response = await api.post(`/contacts/${clientId}`, contactData, {
@@ -35,11 +35,7 @@ export const ContactsProvider: React.FC<IContextContextProvider> = ({
 
       setSpecificClient((prevState) => ({
         ...prevState!,
-        contacts: [
-          ...prevState!.contacts.map((contact) =>
-            contact.id.toString() === contactId ? response.data : contact
-          ),
-        ],
+        contacts: [...prevState!.contacts, response.data],
       }));
 
       setCurrentModal("");
@@ -51,7 +47,7 @@ export const ContactsProvider: React.FC<IContextContextProvider> = ({
 
   const updateContact = async (
     contactData: ContactUpdate,
-    contactId: number
+    contactId: string
   ): Promise<Contact | undefined> => {
     try {
       const response = await api.patch(`/contacts/${contactId}`, contactData, {
@@ -63,7 +59,11 @@ export const ContactsProvider: React.FC<IContextContextProvider> = ({
 
       setSpecificClient((prevState) => ({
         ...prevState!,
-        contacts: [...prevState!.contacts, response.data],
+        contacts: [
+          ...prevState!.contacts.map((contact) =>
+            contact.id.toString() === contactId ? response.data : contact
+          ),
+        ],
       }));
 
       console.log(response.data);
@@ -73,7 +73,7 @@ export const ContactsProvider: React.FC<IContextContextProvider> = ({
     }
   };
 
-  const deleteContact = async (contactId: number): Promise<void> => {
+  const deleteContact = async (contactId: string): Promise<void> => {
     try {
       await api.delete(`/contacts/${contactId}`, {
         headers: {

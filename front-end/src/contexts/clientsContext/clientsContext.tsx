@@ -17,7 +17,7 @@ export const ClientsProvider: React.FC<IClientContextProvider> = ({
   const [specificClient, setSpecificClient] = useState<Client | undefined>();
 
   const getSpecificClient = async (
-    clientId: number
+    clientId: string
   ): Promise<Client | undefined> => {
     try {
       const response = await api.get(`/clients/${clientId}`, {
