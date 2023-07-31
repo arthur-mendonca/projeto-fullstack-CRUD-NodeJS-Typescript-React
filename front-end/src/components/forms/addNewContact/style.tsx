@@ -1,4 +1,5 @@
 import { styled } from "../../../styles/stitches.config";
+import { Button } from "../../../styles/Buttons";
 
 export const FormWrapper = styled("form", {
   backgroundColor: "$color7",
@@ -30,13 +31,14 @@ export const ButtonWrapper = styled("div", {
   gap: "1rem",
 });
 
-export const StyledButton = styled("button", {
+export const StyledButton = styled(Button, {
   padding: "0.5rem",
   borderRadius: "10px",
   fontSize: "20px",
   cursor: "pointer",
   backgroundColor: "$color1",
   color: "$whiteFixed",
+  width: "100%",
 
   "&:hover": {
     backgroundColor: "$color2",

@@ -4,6 +4,7 @@ import {
   ButtonsWrapper,
   DeleteModalWrapper,
   StyledButton,
+  StyledDeleteButton,
   StyledText,
 } from "./style";
 import { ClientsContext } from "../../../contexts/clientsContext/clientsContext";
@@ -46,7 +47,9 @@ export const DeleteContactModal = () => {
       </StyledText>
       <ButtonsWrapper>
         <StyledButton onClick={() => handleClick()}>Sim</StyledButton>
-        <StyledButton onClick={() => setCurrentModal("")}>Não</StyledButton>
+        <StyledDeleteButton onClick={() => setCurrentModal("")}>
+          Não
+        </StyledDeleteButton>
       </ButtonsWrapper>
     </DeleteModalWrapper>
   );

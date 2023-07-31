@@ -44,9 +44,9 @@ export const LoginForm = ({ children }: LoginFormProps) => {
       />
       {errors.password?.message && <p>{errors.password.message}</p>}
       <ButtonsWrapper>
-        <StyledLoginButton>Login</StyledLoginButton>
+        <StyledLoginButton>Entrar</StyledLoginButton>
         <StyledRegisterButton onClick={() => navigate("/register")}>
-          Register
+          Registrar
         </StyledRegisterButton>
       </ButtonsWrapper>
     </StyledLoginForm>

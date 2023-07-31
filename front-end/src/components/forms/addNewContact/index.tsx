@@ -5,7 +5,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AddContactSchema } from "../../../schemas/contactSchema";
 import { ContactRequestData } from "../../../contexts/contactsContext/interfaces";
-import { FormWrapper, InputWrapper, StyledButton, StyledInput } from "./style";
+import {
+  ButtonWrapper,
+  FormWrapper,
+  InputWrapper,
+  StyledButton,
+  StyledInput,
+} from "./style";
 import { StyledErrorText } from "../updateContact/style";
 
 interface DecodedToken {
@@ -48,8 +54,10 @@ export const AddContactForm = () => {
           <StyledErrorText type="error">{errors.phone.message}</StyledErrorText>
         )}
       </InputWrapper>
-      <StyledButton>Adicionar</StyledButton>
-      <StyledButton onClick={() => setCurrentModal("")}>Fechar</StyledButton>
+      <ButtonWrapper>
+        <StyledButton>Adicionar</StyledButton>
+        <StyledButton onClick={() => setCurrentModal("")}>Fechar</StyledButton>
+      </ButtonWrapper>
     </FormWrapper>
   );
 };

@@ -1,5 +1,6 @@
 import { styled } from "../../../styles/stitches.config";
 import { Text } from "../../../styles/Text";
+import { Button } from "../../../styles/Buttons";
 
 export const DeleteModalWrapper = styled("div", {
   backgroundColor: "$color7",
@@ -21,7 +22,7 @@ export const ButtonsWrapper = styled("div", {
   gap: "1rem",
 });
 
-export const StyledButton = styled("button", {
+export const StyledButton = styled(Button, {
   padding: "0.3rem",
   backgroundColor: "$color1",
   color: "$whiteFixed",
@@ -30,6 +31,16 @@ export const StyledButton = styled("button", {
 
   "&:hover": {
     backgroundColor: "$color2",
+    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)",
+    transition: "all 0.2s ease-in-out",
+  },
+});
+
+export const StyledDeleteButton = styled(StyledButton, {
+  backgroundColor: "$whiteFixed",
+  color: "Black",
+  "&:hover": {
+    backgroundColor: "lightgray",
     boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)",
     transition: "all 0.2s ease-in-out",
   },
