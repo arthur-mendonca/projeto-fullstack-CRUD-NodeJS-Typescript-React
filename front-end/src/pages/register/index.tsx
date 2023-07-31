@@ -1,10 +1,12 @@
 import { RegisterForm } from "../../components/forms/registerForm";
-import { RegisterPageWrapper } from "./style";
+import { RegisterPageWrapper, StyledTitle } from "./style";
 
 export const RegisterPage = () => {
   return (
     <RegisterPageWrapper>
-      <RegisterForm />
+      <RegisterForm>
+        <StyledTitle type={"heading1"}>Registrar</StyledTitle>
+      </RegisterForm>
     </RegisterPageWrapper>
   );
 };

@@ -16,7 +16,7 @@ import { ClientsContext } from "../../../contexts/clientsContext/clientsContext"
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
-export const RegisterForm = () => {
+export const RegisterForm = ({ children }) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const { createClient } = useContext(ClientsContext);
@@ -45,6 +45,7 @@ export const RegisterForm = () => {
   return (
     <>
       <StyledRegisterForm onSubmit={handleSubmit(onSubmit)}>
+        {children}
         <StyledInput {...register("name")} placeholder="Name" />
         {errors.name?.message && (
           <Text type={"error"}>{errors.name.message}</Text>
