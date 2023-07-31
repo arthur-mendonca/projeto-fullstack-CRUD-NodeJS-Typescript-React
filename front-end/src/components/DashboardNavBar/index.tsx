@@ -7,6 +7,7 @@ import {
   StyledButton as AddContactButton,
   StyledButton as PDFButton,
   ButtonsWrapper,
+  StyledTitleContainer,
 } from "./style";
 import { BiExit } from "react-icons/Bi";
 import { useNavigate } from "react-router-dom";
@@ -43,10 +44,12 @@ export const DashboardNavBarWrapper = () => {
   return (
     <DashboardNavBar>
       <StyledContainer>
-        <StyledTitle>
-          {"Olá, "}
-          {specificClient?.name}
-        </StyledTitle>
+        <StyledTitleContainer>
+          <StyledTitle>
+            {"Olá, "}
+            {specificClient?.name}
+          </StyledTitle>
+        </StyledTitleContainer>
         <ButtonsWrapper>
           <ExitButton onClick={() => exit()}>
             <BiExit color="white" />

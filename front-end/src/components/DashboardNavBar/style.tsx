@@ -16,6 +16,15 @@ export const StyledContainer = styled(Container, {
   padding: "1rem 0",
   display: "flex",
   justifyContent: "space-around",
+
+  "@mobile": {
+    flexDirection: "column",
+    alignItems: "center",
+  },
+});
+
+export const StyledTitleContainer = styled("div", {
+  display: "flex",
 });
 
 export const StyledTitle = styled(Text, {

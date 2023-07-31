@@ -11,4 +11,7 @@ export const CardsWrapper = styled("div", {
   height: "100%",
   display: "flex",
   alignItems: "flex-start",
+  justifyContent: "center",
+  margin: "0 auto",
+  maxWidth: "900px",
 });

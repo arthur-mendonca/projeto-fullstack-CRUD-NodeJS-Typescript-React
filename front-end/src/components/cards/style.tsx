@@ -8,6 +8,7 @@ export const CardsWrapper = styled("ul", {
   gap: "1rem",
   width: "100%",
   justifyItems: "center",
+  // margin: "0 auto",
 
   "@mobile": {
     justifyContent: "center",
@@ -23,6 +24,7 @@ export const CardsWrapper = styled("ul", {
     height: "250px",
     justifyContent: "space-around",
     borderRadius: "1rem",
+    margin: "0 auto",
 
     "&:hover": {
       backgroundColor: "$color8",
