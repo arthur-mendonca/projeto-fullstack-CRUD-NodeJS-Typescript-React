@@ -51,3 +51,5 @@ export const StyledButton = styled(Button, {
 export const StyledTitle = styled(Text, {
   color: "$whiteFixed",
 });
+
+export const StyledErrorText = styled(Text, {});

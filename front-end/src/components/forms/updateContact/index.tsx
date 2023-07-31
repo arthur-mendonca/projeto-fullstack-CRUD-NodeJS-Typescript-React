@@ -14,22 +14,11 @@ import {
   UpdateForm,
 } from "./style";
 
-interface DecodedToken {
-  sub: string;
-}
-
 export const UpdateContactForm = () => {
   const { updateContact, setCurrentModal, contactId } =
     useContext(ContactsContext);
 
-  const token = localStorage.getItem("@token");
-  const decoded = jwt_decode<DecodedToken>(token!);
-
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm<ContactUpdate>({
+  const { handleSubmit, register } = useForm<ContactUpdate>({
     resolver: zodResolver(UpdateContactSchema),
   });
 

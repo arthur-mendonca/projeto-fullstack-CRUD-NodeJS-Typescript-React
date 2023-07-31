@@ -1,6 +1,5 @@
 import { keyframes } from "@stitches/react";
 import { styled } from "../../styles/stitches.config";
-import { Text } from "../../styles/Text";
 
 export const NavBar = styled("nav", {
   background: "$color7",
