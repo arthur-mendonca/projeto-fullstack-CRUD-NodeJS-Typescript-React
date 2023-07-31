@@ -25,14 +25,11 @@ const listContactsPDFService = async (): Promise<Buffer> => {
   const template = fs.readFileSync(templatePath, "utf-8");
   const htmlContent = ejs.render(template, { contacts });
 
-  const pdfPath = path.join(__dirname, "../../../contacts.pdf");
-
   await page.setContent(htmlContent);
 
   const pdf = await page.pdf({
     format: "A4",
     printBackground: true,
-    path: pdfPath,
   });
 
   await browser.close();

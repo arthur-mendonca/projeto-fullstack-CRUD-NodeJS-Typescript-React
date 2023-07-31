@@ -61,19 +61,14 @@ const listContactsPDFController = async (
   request: Request,
   response: Response
 ) => {
-  const contacts = await listContactsPDFService();
+  const pdfBuffer = await listContactsPDFService();
 
-  const filePath = path.join(__dirname, "../services/contacts/contacts.ejs");
-
-  const createPDF = ejs.renderFile(filePath, { contacts }, (err, html) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("PDF gerado com sucesso");
-    }
-    return response.send(html);
-  });
-  return response.status(200).json(createPDF);
+  response.setHeader("Content-Type", "application/pdf");
+  response.setHeader(
+    "Content-Disposition",
+    "attachment; filename=contacts.pdf"
+  );
+  response.send(pdfBuffer);
 };
 
 export {
