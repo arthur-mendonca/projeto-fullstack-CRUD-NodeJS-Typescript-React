@@ -16,7 +16,11 @@ import { ClientsContext } from "../../../contexts/clientsContext/clientsContext"
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
-export const RegisterForm = ({ children }) => {
+interface RegisterProps {
+  children: React.ReactNode;
+}
+
+export const RegisterForm = ({ children }: RegisterProps) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const { createClient } = useContext(ClientsContext);
