@@ -15,10 +15,10 @@ export const NavBar = styled("nav", {
 
 export const MarqueeText = keyframes({
   "0%": { transform: "translateX(-100%)" },
-  "100%": { transform: "translateX(300%)" },
+  "100%": { transform: "translateX(500%)" },
 });
 
-export const AnimatedText = styled(Text, {
+export const AnimatedTextDiv = styled("div", {
   display: "flex",
   animation: `${MarqueeText} 10s linear infinite`,
   whiteSpace: "nowrap",

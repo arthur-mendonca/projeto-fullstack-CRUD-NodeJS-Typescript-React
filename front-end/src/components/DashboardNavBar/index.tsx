@@ -5,13 +5,14 @@ import {
   StyledTitle,
   StyledButton as ExitButton,
   StyledButton as AddContactButton,
+  StyledButton as PDFButton,
   ButtonsWrapper,
 } from "./style";
 import { BiExit } from "react-icons/Bi";
 import { useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import jwt_decode from "jwt-decode";
-import { AiOutlineUserAdd } from "react-icons/ai";
+import { AiOutlineUserAdd, AiOutlineFilePdf } from "react-icons/ai";
 import { ContactsContext } from "../../contexts/contactsContext";
 
 interface DecodedToken {
@@ -21,7 +22,7 @@ interface DecodedToken {
 export const DashboardNavBarWrapper = () => {
   const navigate = useNavigate();
   const { getSpecificClient, specificClient } = useContext(ClientsContext);
-  const { setCurrentModal } = useContext(ContactsContext);
+  const { setCurrentModal, printPDF } = useContext(ContactsContext);
 
   const token = localStorage.getItem("@token");
   const decoded = jwt_decode<DecodedToken>(token!);
@@ -33,6 +34,10 @@ export const DashboardNavBarWrapper = () => {
   const exit = () => {
     localStorage.removeItem("@token");
     navigate("/");
+  };
+
+  const handlePDFClick = () => {
+    printPDF();
   };
 
   return (
@@ -49,6 +54,9 @@ export const DashboardNavBarWrapper = () => {
           <AddContactButton onClick={() => setCurrentModal("addNewContact")}>
             <AiOutlineUserAdd color="white" />
           </AddContactButton>
+          <PDFButton onClick={() => handlePDFClick()}>
+            <AiOutlineFilePdf color="white" />
+          </PDFButton>
         </ButtonsWrapper>
       </StyledContainer>
     </DashboardNavBar>

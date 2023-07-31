@@ -1,12 +1,12 @@
 import { Clock } from "../clock";
-import { AnimatedText, NavBar as NavBarWrapper } from "./styles";
+import { AnimatedTextDiv, NavBar as NavBarWrapper } from "./styles";
 
 export const NavBar = (): JSX.Element => {
   return (
     <NavBarWrapper>
-      <AnimatedText type={"body2"}>
+      <AnimatedTextDiv>
         <Clock />
-      </AnimatedText>
+      </AnimatedTextDiv>
     </NavBarWrapper>
   );
 };

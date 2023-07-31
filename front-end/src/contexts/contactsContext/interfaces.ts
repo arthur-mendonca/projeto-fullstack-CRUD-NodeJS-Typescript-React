@@ -19,6 +19,8 @@ export interface IContactsContext {
   contactId: string | undefined;
 
   deleteContact: (contactId: string) => Promise<void>;
+
+  printPDF: () => Promise<void>;
 }
 
 export interface IContextContextProvider {

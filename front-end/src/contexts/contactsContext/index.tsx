@@ -15,7 +15,7 @@ export const ContactsContext = createContext({} as IContactsContext);
 export const ContactsProvider: React.FC<IContextContextProvider> = ({
   children,
 }) => {
-  const { specificClient, setSpecificClient } = useContext(ClientsContext);
+  const { setSpecificClient } = useContext(ClientsContext);
   const [currentModal, setCurrentModal] = useState("");
   const [contactId, setContactId] = useState<string | undefined>(undefined);
 
@@ -61,7 +61,7 @@ export const ContactsProvider: React.FC<IContextContextProvider> = ({
         ...prevState!,
         contacts: [
           ...prevState!.contacts.map((contact) =>
-            contact.id.toString() === contactId ? response.data : contact
+            contact.id === contactId ? response.data : contact
           ),
         ],
       }));
@@ -93,6 +93,34 @@ export const ContactsProvider: React.FC<IContextContextProvider> = ({
       console.log(error);
     }
   };
+
+  const printPDF = async (): Promise<void> => {
+    try {
+      const response = await api.get("/contacts/pdf", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        responseType: "blob",
+      });
+
+      const file = new Blob([response.data], { type: "application/pdf" });
+
+      const link = document.createElement("a");
+      link.style.display = "none";
+      document.body.appendChild(link);
+
+      const url = window.URL.createObjectURL(file);
+
+      link.href = url;
+      link.download = "contacts.pdf";
+      link.click();
+      window.URL.revokeObjectURL(url);
+
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <ContactsContext.Provider
       value={{
@@ -103,6 +131,7 @@ export const ContactsProvider: React.FC<IContextContextProvider> = ({
         contactId,
         setContactId,
         deleteContact,
+        printPDF,
       }}
     >
       {children}
