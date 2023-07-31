@@ -23,7 +23,7 @@ interface DecodedToken {
 export const DashboardNavBarWrapper = () => {
   const navigate = useNavigate();
   const { getSpecificClient, specificClient } = useContext(ClientsContext);
-  const { setCurrentModal, printPDF } = useContext(ContactsContext);
+  const { setCurrentModal } = useContext(ContactsContext);
 
   const token = localStorage.getItem("@token");
   const decoded = jwt_decode<DecodedToken>(token!);
@@ -35,10 +35,6 @@ export const DashboardNavBarWrapper = () => {
   const exit = () => {
     localStorage.removeItem("@token");
     navigate("/");
-  };
-
-  const handlePDFClick = () => {
-    printPDF();
   };
 
   return (
@@ -57,7 +53,7 @@ export const DashboardNavBarWrapper = () => {
           <AddContactButton onClick={() => setCurrentModal("addNewContact")}>
             <AiOutlineUserAdd color="white" />
           </AddContactButton>
-          <PDFButton onClick={() => handlePDFClick()}>
+          <PDFButton onClick={() => setCurrentModal("PDFModal")}>
             <AiOutlineFilePdf color="white" />
           </PDFButton>
         </ButtonsWrapper>
