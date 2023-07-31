@@ -4,20 +4,17 @@ export const CardsWrapper = styled("ul", {
   listStyle: "none",
   display: "flex",
   flexWrap: "wrap",
-  // gridTemplateColumns: "repeat(auto-fit, minmax(240px, 0.5fr))",
   padding: "2rem",
   gap: "1rem",
   width: "100%",
-  // height: "100%",
   justifyItems: "center",
 
   "@mobile": {
     justifyContent: "center",
-    backgroundColor: "$color2",
   },
 
   ["& li"]: {
-    backgroundColor: "$color4",
+    backgroundColor: "$color6",
     padding: "1rem",
     display: "flex",
     flexDirection: "column",

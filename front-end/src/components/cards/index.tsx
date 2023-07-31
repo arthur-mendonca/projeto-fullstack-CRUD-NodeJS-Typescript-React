@@ -35,7 +35,6 @@ export const Cards = (): JSX.Element => {
     setCurrentModal("updateContact");
     console.log(event.currentTarget.id);
     setContactId(event.currentTarget.id);
-    // console.log(clientId);
   };
 
   const handleDeleteClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -46,35 +45,37 @@ export const Cards = (): JSX.Element => {
 
   return (
     <CardsWrapper>
-      {specificClient?.contacts.map((contact) => (
-        <li key={contact.id} id={contact.id}>
-          <CardDataWrapper>
-            <Text type={"cardName"} css={{ color: "white" }}>
-              {contact.name}
-            </Text>
-            <Text type={"cardText"} css={{ color: "white" }}>
-              {contact.email}
-            </Text>
-            <Text type={"cardText"} css={{ color: "white" }}>
-              {contact.phone}{" "}
-            </Text>
-          </CardDataWrapper>
-          <ButtonsWrapper>
-            <DeleteButton
-              id={contact.id}
-              onClick={(event) => handleDeleteClick(event)}
-            >
-              <AiOutlineDelete color={"white"} />
-            </DeleteButton>
-            <UpdateButton
-              id={contact.id}
-              onClick={(event) => handleUpdateClick(event)}
-            >
-              <MdSystemUpdateAlt color={"white"} />
-            </UpdateButton>
-          </ButtonsWrapper>
-        </li>
-      ))}
+      {specificClient?.contacts
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((contact) => (
+          <li key={contact.id} id={contact.id}>
+            <CardDataWrapper>
+              <Text type={"cardName"} css={{ color: "white" }}>
+                {contact.name}
+              </Text>
+              <Text type={"cardText"} css={{ color: "white" }}>
+                {contact.email}
+              </Text>
+              <Text type={"cardText"} css={{ color: "white" }}>
+                {contact.phone}{" "}
+              </Text>
+            </CardDataWrapper>
+            <ButtonsWrapper>
+              <DeleteButton
+                id={contact.id}
+                onClick={(event) => handleDeleteClick(event)}
+              >
+                <AiOutlineDelete color={"white"} />
+              </DeleteButton>
+              <UpdateButton
+                id={contact.id}
+                onClick={(event) => handleUpdateClick(event)}
+              >
+                <MdSystemUpdateAlt color={"white"} />
+              </UpdateButton>
+            </ButtonsWrapper>
+          </li>
+        ))}
     </CardsWrapper>
   );
 };

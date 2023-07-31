@@ -10,11 +10,12 @@ export const StyledRegisterForm = styled("form", {
   gap: "1rem",
   alignItems: "center",
   justifyContent: "center",
-  backgroundColor: "$color8",
+  backgroundColor: "transparent",
   borderRadius: "5px",
   padding: "2rem",
   maxWidth: "25rem",
   margin: "0 auto",
+  border: "2px solid $color10",
 });
 
 export const StyledInput = styled("input", {

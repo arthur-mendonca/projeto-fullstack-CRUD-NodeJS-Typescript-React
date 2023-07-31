@@ -1,5 +1,6 @@
 import { styled } from "../../../styles/stitches.config";
 import { Button } from "../../../styles/Buttons";
+import { Text } from "../../../styles/Text";
 
 export const FormWrapper = styled("form", {
   backgroundColor: "$color7",
@@ -45,4 +46,8 @@ export const StyledButton = styled(Button, {
     boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.5)",
     transition: "all 0.2s ease-in-out",
   },
+});
+
+export const StyledTitle = styled(Text, {
+  color: "$whiteFixed",
 });

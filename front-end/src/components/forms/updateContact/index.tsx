@@ -10,6 +10,7 @@ import {
   InputWrapper,
   StyledButton,
   StyledInput,
+  StyledTitle,
   UpdateForm,
 } from "./style";
 
@@ -45,6 +46,7 @@ export const UpdateContactForm = () => {
 
   return (
     <UpdateForm onSubmit={handleSubmit(onSubmit)}>
+      <StyledTitle type={"heading1"}>Atualizar contato</StyledTitle>
       <InputWrapper>
         <StyledInput {...register("name")} placeholder="Name" />
         <StyledInput

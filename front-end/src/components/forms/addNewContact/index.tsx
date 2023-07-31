@@ -11,8 +11,8 @@ import {
   InputWrapper,
   StyledButton,
   StyledInput,
+  StyledTitle,
 } from "./style";
-import { StyledErrorText } from "../updateContact/style";
 
 interface DecodedToken {
   sub: string;
@@ -40,6 +40,7 @@ export const AddContactForm = () => {
 
   return (
     <FormWrapper onSubmit={handleSubmit(onSubmit)}>
+      <StyledTitle type={"heading1"}>Adicionar contato</StyledTitle>
       <InputWrapper>
         <StyledInput type="text" {...register("name")} placeholder="Name" />
         {errors.name?.message && (

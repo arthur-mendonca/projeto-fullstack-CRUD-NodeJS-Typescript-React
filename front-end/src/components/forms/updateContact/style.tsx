@@ -48,6 +48,6 @@ export const StyledButton = styled(Button, {
   },
 });
 
-export const StyledErrorText = styled(Text, {
-  variants: {},
+export const StyledTitle = styled(Text, {
+  color: "$whiteFixed",
 });

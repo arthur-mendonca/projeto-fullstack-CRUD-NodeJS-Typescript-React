@@ -8,11 +8,12 @@ export const StyledLoginForm = styled("form", {
   gap: "1rem",
   alignItems: "center",
   justifyContent: "center",
-  backgroundColor: "$color8",
+  backgroundColor: "transparent",
   borderRadius: "5px",
   padding: "1rem",
   maxWidth: "25rem",
   margin: "0 auto",
+  border: "2px solid $color10",
 });
 
 export const StyledInput = styled("input", {
@@ -49,8 +50,7 @@ export const StyledRegisterButton = styled(RegisterButton, {
   maxWidth: "125px",
 
   "&:hover": {
-    color: "$whiteFixed",
-    backgroundColor: "black",
+    backgroundColor: "#D3D3D3",
     transition: "ease-in .3s",
   },
 });

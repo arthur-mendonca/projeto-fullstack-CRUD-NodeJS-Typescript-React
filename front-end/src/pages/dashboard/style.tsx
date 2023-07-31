@@ -1,7 +1,7 @@
 import { styled } from "@stitches/react";
 
 export const DashboardWrapper = styled("section", {
-  backgroundColor: "darkgrey",
+  backgroundColor: "#D3D3D3",
   flex: "1 1 auto",
   overflowY: "auto",
 });
