@@ -7,16 +7,19 @@ import {
   StyledTitle,
 } from "./style";
 
-// "PDFModal"
-
 export const PDFModal = () => {
   const { setCurrentModal, printPDF } = useContext(ContactsContext);
+
+  const handleClick = () => {
+    printPDF();
+    setCurrentModal("");
+  };
 
   return (
     <PrintPDFWrapper>
       <StyledTitle type={"heading1"}>Imprimir lista dos contatos?</StyledTitle>
       <ButtonsWrapper>
-        <StyledButton onClick={() => printPDF()}>Sim</StyledButton>
+        <StyledButton onClick={() => handleClick()}>Sim</StyledButton>
         <StyledButton
           onClick={() => {
             setCurrentModal("");
