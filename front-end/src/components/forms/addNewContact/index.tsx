@@ -10,6 +10,7 @@ import {
   FormWrapper,
   InputWrapper,
   StyledButton,
+  StyledErrorText,
   StyledInput,
   StyledTitle,
 } from "./style";

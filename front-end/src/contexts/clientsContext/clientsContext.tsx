@@ -3,8 +3,12 @@ import { api } from "../../services";
 import { Client, IClientContext, IClientContextProvider } from "./interfaces";
 import { TClientRegister } from "../../interfaces/clientRegister.interfaces";
 import { toast } from "react-toastify";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
+
+interface IAxiosErrorResponse {
+  message: string;
+}
 
 export const ClientsContext = createContext({} as IClientContext);
 
@@ -58,11 +62,16 @@ export const ClientsProvider: React.FC<IClientContextProvider> = ({
       toast("User created successfully");
       navigate("/");
       return response.data;
-    } catch (err) {
+    } catch (err: unknown) {
       const axiosError = err as AxiosError;
-      if (axiosError.response && axiosError.response.status === 409) {
-        toast(axiosError.response.data.message);
+      if (axios.isAxiosError(err)) {
+        if (axiosError.response && axiosError.response.status === 409) {
+          const AxiosErrorResponse = axiosError.response
+            .data as IAxiosErrorResponse;
+          toast(AxiosErrorResponse.message);
+        }
       }
+
       console.log(err);
     }
   };
