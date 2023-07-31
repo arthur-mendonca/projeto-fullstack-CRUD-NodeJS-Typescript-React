@@ -8,13 +8,16 @@ import {
   StyledRegisterButton,
   StyledRegisterForm,
   StyledPasswordButton,
+  StyledGoBackButton,
 } from "./style";
 import { Text } from "../../../styles/Text";
 import React, { useContext, useState } from "react";
 import { ClientsContext } from "../../../contexts/clientsContext/clientsContext";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterForm = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const { createClient } = useContext(ClientsContext);
 
@@ -25,6 +28,10 @@ export const RegisterForm = () => {
 
   const onSubmit = (data: TClientRegister) => {
     createClient(data);
+  };
+
+  const handleGoBackClick = () => {
+    navigate("/");
   };
 
   const {
@@ -71,6 +78,9 @@ export const RegisterForm = () => {
           <Text type={"error"}>{errors.phone.message}</Text>
         )}
         <StyledRegisterButton>Registrar</StyledRegisterButton>
+        <StyledGoBackButton onClick={handleGoBackClick}>
+          Voltar
+        </StyledGoBackButton>
       </StyledRegisterForm>
     </>
   );

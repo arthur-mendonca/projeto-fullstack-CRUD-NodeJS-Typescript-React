@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AddContactSchema } from "../../../schemas/contactSchema";
 import { ContactRequestData } from "../../../contexts/contactsContext/interfaces";
+import { FormWrapper, InputWrapper, StyledButton, StyledInput } from "./style";
+import { StyledErrorText } from "../updateContact/style";
 
 interface DecodedToken {
   sub: string;
@@ -31,15 +33,23 @@ export const AddContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" {...register("name")} placeholder="Name" />
-      {errors.name?.message && <p>{errors.name.message}</p>}
-      <input type="text" {...register("email")} placeholder="Email" />
-      {errors.email?.message && <p>{errors.email.message}</p>}
-      <input type="text" {...register("phone")} placeholder="Phone" />
-      {errors.phone?.message && <p>{errors.phone.message}</p>}
-      <button>Add</button>
-      <button onClick={() => setCurrentModal("")}>Close</button>
-    </form>
+    <FormWrapper onSubmit={handleSubmit(onSubmit)}>
+      <InputWrapper>
+        <StyledInput type="text" {...register("name")} placeholder="Name" />
+        {errors.name?.message && (
+          <StyledErrorText type="error">{errors.name.message}</StyledErrorText>
+        )}
+        <StyledInput type="text" {...register("email")} placeholder="Email" />
+        {errors.email?.message && (
+          <StyledErrorText type="error">{errors.email.message}</StyledErrorText>
+        )}
+        <StyledInput type="text" {...register("phone")} placeholder="Phone" />
+        {errors.phone?.message && (
+          <StyledErrorText type="error">{errors.phone.message}</StyledErrorText>
+        )}
+      </InputWrapper>
+      <StyledButton>Adicionar</StyledButton>
+      <StyledButton onClick={() => setCurrentModal("")}>Fechar</StyledButton>
+    </FormWrapper>
   );
 };

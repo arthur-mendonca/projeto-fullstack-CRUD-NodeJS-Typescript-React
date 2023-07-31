@@ -2,7 +2,7 @@ import { keyframes } from "@stitches/react";
 import { styled } from "../../styles/stitches.config";
 
 export const NavBar = styled("nav", {
-  background: "$color4",
+  background: "$color7",
   position: "sticky",
   inset: 0,
   bottom: "auto",

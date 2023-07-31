@@ -7,11 +7,6 @@ export const Footer = styled("footer", {
   position: "sticky",
   bottom: 0,
   width: "100%",
-  [`& ${Container}`]: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-  },
 });
+
+export const FooterContainer = styled(Container, {});

@@ -1,5 +1,8 @@
 import { styled } from "../../../styles/stitches.config";
-import { Button as RegisterButton } from "../../../styles/Buttons";
+import {
+  Button as GoBackButton,
+  Button as RegisterButton,
+} from "../../../styles/Buttons";
 
 export const StyledRegisterForm = styled("form", {
   display: "flex",
@@ -47,6 +50,21 @@ export const StyledRegisterButton = styled(RegisterButton, {
   "&:hover": {
     color: "$whiteFixed",
     backgroundColor: "$color2",
+    transition: "ease-in .3s",
+  },
+});
+
+export const StyledGoBackButton = styled(GoBackButton, {
+  backgroundColor: "$color2",
+  borderRadius: "5px",
+  border: "none",
+  color: "$whiteFixed",
+  maxWidth: "125px",
+  marginTop: "1rem",
+
+  "&:hover": {
+    color: "$whiteFixed",
+    backgroundColor: "$color3",
     transition: "ease-in .3s",
   },
 });

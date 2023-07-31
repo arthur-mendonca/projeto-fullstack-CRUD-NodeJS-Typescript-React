@@ -2,13 +2,19 @@ import { styled } from "../../styles/stitches.config";
 
 export const CardsWrapper = styled("ul", {
   listStyle: "none",
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 0.5fr))",
+  display: "flex",
+  flexWrap: "wrap",
+  // gridTemplateColumns: "repeat(auto-fit, minmax(240px, 0.5fr))",
   padding: "2rem",
-  gap: "2rem",
+  gap: "1rem",
   width: "100%",
-  height: "100%",
+  // height: "100%",
   justifyItems: "center",
+
+  "@mobile": {
+    justifyContent: "center",
+    backgroundColor: "$color2",
+  },
 
   ["& li"]: {
     backgroundColor: "$color4",
@@ -17,7 +23,7 @@ export const CardsWrapper = styled("ul", {
     flexDirection: "column",
     gap: "0.5rem",
     width: "250px",
-    height: "200px",
+    height: "250px",
     justifyContent: "space-around",
     borderRadius: "1rem",
 
@@ -33,12 +39,12 @@ export const CardDataWrapper = styled("div", {
   display: "flex",
   flexDirection: "column",
   padding: "1rem",
+  gap: "5px",
 });
 
 export const ButtonsWrapper = styled("div", {
   display: "flex",
   flexDirection: "row",
-  // padding: "1rem",
   justifyContent: "space-around",
   width: "100%",
   paddingBottom: "20px",
@@ -48,9 +54,11 @@ export const DeleteButton = styled("button", {
   backgroundColor: "$color1",
   borderRadius: "10px",
   padding: "0.5rem",
+  cursor: "pointer",
 });
 export const UpdateButton = styled("button", {
   backgroundColor: "$color1",
   borderRadius: "10px",
   padding: "0.5rem",
+  cursor: "pointer",
 });

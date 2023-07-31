@@ -42,7 +42,6 @@ export const Cards = (): JSX.Element => {
     setCurrentModal("deleteContact");
     console.log(event.currentTarget.id);
     setContactId(event.currentTarget.id);
-    // console.log(clientId);
   };
 
   return (

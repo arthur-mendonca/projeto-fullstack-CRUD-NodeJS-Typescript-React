@@ -5,7 +5,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UpdateContactSchema } from "../../../schemas/contactSchema";
 import { ContactUpdate } from "../../../contexts/contactsContext/interfaces";
-import { StyledButton, StyledInput, UpdateForm } from "./style";
+import {
+  ButtonWrapper,
+  InputWrapper,
+  StyledButton,
+  StyledInput,
+  UpdateForm,
+} from "./style";
 
 interface DecodedToken {
   sub: string;
@@ -39,14 +45,18 @@ export const UpdateContactForm = () => {
 
   return (
     <UpdateForm onSubmit={handleSubmit(onSubmit)}>
-      <StyledInput {...register("name")} placeholder="Name" />
-      <StyledInput
-        {...register("email", { required: false })}
-        placeholder="Email"
-      />
-      <StyledInput {...register("phone")} placeholder="Phone" />
-      <StyledButton>Atualizar</StyledButton>
-      <StyledButton onClick={() => setCurrentModal("")}>Fechar</StyledButton>
+      <InputWrapper>
+        <StyledInput {...register("name")} placeholder="Name" />
+        <StyledInput
+          {...register("email", { required: false })}
+          placeholder="Email"
+        />
+        <StyledInput {...register("phone")} placeholder="Phone" />
+      </InputWrapper>
+      <ButtonWrapper>
+        <StyledButton>Atualizar</StyledButton>
+        <StyledButton onClick={() => setCurrentModal("")}>Fechar</StyledButton>
+      </ButtonWrapper>
     </UpdateForm>
   );
 };

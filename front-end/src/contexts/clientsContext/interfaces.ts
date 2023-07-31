@@ -6,7 +6,7 @@ export interface IClientContext {
   setClients: Dispatch<SetStateAction<Client[]>>;
   clients: Client[];
   createClient: (clientData: TClientRegister) => Promise<Client | undefined>;
-  getSpecificClient: (clientId: number) => Promise<Client | undefined>;
+  getSpecificClient: (clientId: string) => Promise<Client | undefined>;
   specificClient: Client | undefined;
   setSpecificClient: React.Dispatch<React.SetStateAction<Client | undefined>>;
 }
@@ -16,7 +16,7 @@ export interface IClientContextProvider {
 }
 
 export interface Client {
-  id: number;
+  id: string;
   name: string;
   email: string;
   phone: string;
@@ -26,7 +26,7 @@ export interface Client {
 }
 
 export interface Contact {
-  id: number;
+  id: string;
   name: string;
   email: string;
   phone: string;

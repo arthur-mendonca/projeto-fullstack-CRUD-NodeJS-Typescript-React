@@ -1,9 +1,13 @@
 import { useContext, useEffect } from "react";
 import { ContactsContext } from "../../../contexts/contactsContext";
-import { ButtonsWrapper, DeleteModalWrapper, StyledButton } from "./style";
+import {
+  ButtonsWrapper,
+  DeleteModalWrapper,
+  StyledButton,
+  StyledText,
+} from "./style";
 import { ClientsContext } from "../../../contexts/clientsContext/clientsContext";
 import { IClientContext } from "../../../contexts/clientsContext/interfaces";
-import { Text } from "../../../styles/Text";
 import jwt_decode from "jwt-decode";
 
 interface DecodedToken {
@@ -25,7 +29,7 @@ export const DeleteContactModal = () => {
   }, []);
 
   const contactToDelete = specificClient!.contacts.find(
-    (contact) => Number(contact.id) === Number(contactId)
+    (contact) => contact.id === contactId
   );
 
   const handleClick = () => {
@@ -34,12 +38,12 @@ export const DeleteContactModal = () => {
   };
   return (
     <DeleteModalWrapper>
-      <Text>
+      <StyledText>
         Tem certeza que deseja excluir o contato{" "}
         <strong>
-          <p>{contactToDelete?.name}</p>
+          <p>{contactToDelete?.name} ?</p>
         </strong>
-      </Text>
+      </StyledText>
       <ButtonsWrapper>
         <StyledButton onClick={() => handleClick()}>Sim</StyledButton>
         <StyledButton onClick={() => setCurrentModal("")}>Não</StyledButton>

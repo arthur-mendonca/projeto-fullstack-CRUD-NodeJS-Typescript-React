@@ -27,7 +27,7 @@ export const DashboardNavBarWrapper = () => {
   const decoded = jwt_decode<DecodedToken>(token!);
 
   useEffect(() => {
-    getSpecificClient(Number(decoded.sub));
+    getSpecificClient(decoded.sub);
   }, [token, decoded.sub]);
 
   const exit = () => {
