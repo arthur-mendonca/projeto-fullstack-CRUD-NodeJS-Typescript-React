@@ -1,4 +1,4 @@
-# React + TypeScript + Vite
+Instruções de inicialização
 
 
 BACK-END 
