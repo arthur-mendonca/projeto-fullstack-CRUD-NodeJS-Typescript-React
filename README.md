@@ -24,3 +24,49 @@ FRONT-END
 1. Navegue até o diretório "front-end" no terminal.
 2. Instale as dependências do Node.js usando o comando npm install.
 3. Inicie o servidor front-end com npm run dev.
+
+
+ROTAS: 
+
+
+-->LOGIN Fazer Login: POST /login
+
+--> CLIENTS 
+*Criar Client: 
+POST /clients 
+
+
+*Atualizar Client: 
+PATCH /client/id 
+
+*Listar todos os Clients: 
+GET /clients 
+
+*Listar um Client específico: 
+GET /clients/id 
+
+*Deletar Client: 
+DELETE /clients/id 
+
+*Criar um PDF com a lista de todos os Clients: 
+GET /clients/pdf
+
+--> CONTACTS 
+
+*Criar Contact: 
+POST /contact 
+
+*Atualizar Contact: 
+PATCH /contact/id 
+
+*Listar todos os Contacts: 
+GET /contact 
+
+*Listar um Contact específico: 
+GET /contact/id 
+
+*Deletar ClContactient: 
+DELETE /contact/id 
+
+*Criar um PDF com a lista de todos os Contacts: 
+GET /contact/pdf
