@@ -1,5 +1,17 @@
 # projeto-fullstack-CRUD-NodeJS-Typescript-React
 
+INTRODUÇÃO AO APP
+
+O app oferece uma interface para cadastro de um cliente em que este pode adicionar vários contatos e armazená-los, bem como imprimir sua lista de contatos em PDF. Os usuários devem se registrar para logar na aplicação.
+No dashboard, o usuário pode adicionar, editar e deletar os contatos, que são renderizados diretamente no dashboard. 
+O back end traz a possibilidade de implementar privilégios de usuário admin, que não estão presentes nesta versão do app. 
+
+No back end, o app é escrito em Node.js com Express, TypeORM, PostgreSQL e Typescript
+
+No front end, o app utiliza React.js com Typescript. 
+
+
+
 PARA INICIAR 
 
 BACK-END 
@@ -70,3 +82,28 @@ DELETE /contact/id
 
 *Criar um PDF com a lista de todos os Contacts: 
 GET /contact/pdf
+
+
+ESTRUTURA DO APP NO BACK-END  
+
+O app segue a arquitetura controller-service. O Express não está presente nos arquivos service. 
+
+Os middlewares fazem validações que evitam erros, como verificar se o ID do usuário buscado existe. 
+
+ESTRUTURA DO APP NO FRONT-END
+
+O app utiliza React Hook-forms para validar os dados nos formulários, bem como Zod para criar schemas de validação de dados. 
+
+Toastify é utilizado para retornar feedback ao usuário em relação às requisições. 
+
+React Router-DOM é utilizado para navegação entre páginas. 
+
+As requisições são feitas pelo Axios. 
+
+JWT-Decode foi utilizado para manipular dados do token e validar requisições. 
+
+A estilização foi feita com Stitches. 
+
+Ícones do React-Icons foram utilizados. 
+
+
